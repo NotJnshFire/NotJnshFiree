@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💝 FOR MY ISHU 💝</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial Black', 'Impact', sans-serif;
+        }
+        
+        /* VIDEO BACKGROUND */
+        #loveVideo {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+            filter: brightness(0.7);
+        }
+        
+        /* DARK OVERLAY FOR BETTER TEXT READABILITY */
+        .video-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: -1;
+        }
+        
+        /* GLITTER EFFECT */
+        .glitter {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: #fff;
+            border-radius: 50%;
+            animation: glitterFall 3s linear infinite;
+            z-index: -1;
+        }
+        
+        @keyframes glitterFall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* MAIN CONTAINER */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            text-align: center;
+            padding: 40px;
+            position: relative;
+            z-index: 10;
+            margin: 0 auto;
+            animation: containerFloat 6s infinite alternate;
+        }
+        
+        @keyframes containerFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        /* MAIN HEADING - 100% BOLD */
+        .main-heading {
+            font-size: clamp(3.5rem, 7vw, 6rem);
+            font-weight: 900;
+            color: #FF1493;
+            text-shadow: 
+                0 0 30px #FF1493,
+                0 0 60px #FF69B4,
+                0 0 90px #FFB6C1;
+            margin-bottom: 30px;
+            line-height: 1.1;
+            animation: titlePulse 2s infinite;
+        }
+        
+        @keyframes titlePulse {
+            0%, 100% { 
+                transform: scale(1);
+                text-shadow: 0 0 30px #FF1493, 0 0 60px #FF69B4, 0 0 90px #FFB6C1;
+            }
+            50% { 
+                transform: scale(1.05);
+                text-shadow: 0 0 40px #FF1493, 0 0 80px #FF69B4, 0 0 120px #FFB6C1;
+            }
+        }
+        
+        /* SUB HEADING */
+        .sub-heading {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            color: #FFD700;
+            text-shadow: 0 0 20px #FFD700, 0 0 40px #FFA500;
+            margin-bottom: 50px;
+            animation: subTitleGlow 3s infinite alternate;
+        }
+        
+        @keyframes subTitleGlow {
+            0%, 100% { 
+                color: #FFD700;
+                text-shadow: 0 0 20px #FFD700;
+            }
+            50% { 
+                color: #FFFFFF;
+                text-shadow: 0 0 30px #FFFFFF, 0 0 60px #FFD700;
+            }
+        }
+        
+        /* MESSAGES CONTAINER */
+        .messages-container {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 50px;
+            margin: 40px 0;
+            border: 5px solid #FF1493;
+            box-shadow: 
+                0 0 50px rgba(255, 20, 147, 0.5),
+                inset 0 0 30px rgba(255, 20, 147, 0.3);
+            animation: borderGlow 4s infinite alternate;
+        }
+        
+        @keyframes borderGlow {
+            0% { 
+                border-color: #FF1493;
+                box-shadow: 0 0 50px rgba(255, 20, 147, 0.5), inset 0 0 30px rgba(255, 20, 147, 0.3);
+            }
+            100% { 
+                border-color: #FF69B4;
+                box-shadow: 0 0 60px rgba(255, 105, 180, 0.6), inset 0 0 40px rgba(255, 105, 180, 0.4);
+            }
+        }
+        
+        /* VALENTINE MESSAGE - 100% BOLD */
+        .valentine-message {
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-weight: 900;
+            color: #FFFFFF;
+            margin-bottom: 35px;
+            line-height: 1.5;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            padding: 20px;
+            animation: messageEntrance 0.8s ease-out;
+        }
+        
+        @keyframes messageEntrance {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* ISHU NAME - PURPLE GLOW */
+        .ishu-name {
+            color: #9370DB;
+            font-weight: 900;
+            font-size: 1.2em;
+            text-shadow: 
+                0 0 20px #9370DB,
+                0 0 40px #8A2BE2,
+                0 0 60px #9932CC;
+            display: inline-block;
+            padding: 0 10px;
+            animation: nameGlow 3s infinite alternate;
+            position: relative;
+        }
+        
+        @keyframes nameGlow {
+            0%, 100% { 
+                color: #9370DB;
+                text-shadow: 0 0 20px #9370DB, 0 0 40px #8A2BE2;
+            }
+            50% { 
+                color: #BA55D3;
+                text-shadow: 0 0 30px #BA55D3, 0 0 60px #DA70D6;
+            }
+        }
+        
+        /* LOVE WORD - RED GLOW */
+        .love-word {
+            color: #FF0000;
+            font-weight: 900;
+            text-shadow: 
+                0 0 20px #FF0000,
+                0 0 40px #FF4500,
+                0 0 60px #FF6347;
+            display: inline-block;
+            padding: 0 5px;
+            animation: loveGlow 2s infinite alternate;
+        }
+        
+        @keyframes loveGlow {
+            0%, 100% { 
+                color: #FF0000;
+                text-shadow: 0 0 20px #FF0000, 0 0 40px #FF4500;
+            }
+            50% { 
+                color: #FF6347;
+                text-shadow: 0 0 30px #FF6347, 0 0 60px #FF7F50;
+            }
+        }
+        
+        /* HEART DECORATION */
+        .heart-decoration {
+            font-size: clamp(3rem, 5vw, 4rem);
+            margin: 40px 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            animation: heartsFloat 4s infinite alternate;
+        }
+        
+        @keyframes heartsFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        /* SPECIAL MESSAGE BOX */
+        .special-box {
+            background: rgba(139, 0, 139, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 50px 0;
+            border: 4px solid #FFD700;
+            box-shadow: 
+                0 0 40px rgba(255, 215, 0, 0.5),
+                inset 0 0 30px rgba(255, 255, 255, 0.1);
+            animation: specialBoxGlow 5s infinite alternate;
+        }
+        
+        @keyframes specialBoxGlow {
+            0% { 
+                background: rgba(139, 0, 139, 0.8);
+                border-color: #FFD700;
+            }
+            100% { 
+                background: rgba(148, 0, 211, 0.8);
+                border-color: #FFA500;
+            }
+        }
+        
+        /* FOOTER */
+        .footer {
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: 900;
+            color: #FFFFFF;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 3px solid #FF1493;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+        }
+        
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 20px;
+            }
+            
+            .messages-container {
+                padding: 30px;
+            }
+            
+            .valentine-message {
+                font-size: 1.8rem;
+                padding: 15px;
+            }
+            
+            .heart-decoration {
+                font-size: 2.5rem;
+                gap: 15px;
+            }
+            
+            .special-box {
+                padding: 25px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .main-heading {
+                font-size: 2.8rem;
+            }
+            
+            .sub-heading {
+                font-size: 1.8rem;
+            }
+            
+            .valentine-message {
+                font-size: 1.5rem;
+                padding: 10px;
+            }
+            
+            .messages-container {
+                padding: 20px;
+            }
+        }
+        
+        /* FLOATING HEARTS ANIMATION */
+        .floating-heart {
+            position: fixed;
+            font-size: 30px;
+            animation: floatAround 15s linear infinite;
+            z-index: 5;
+            pointer-events: none;
+            opacity: 0.7;
+        }
+        
+        @keyframes floatAround {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(100px, 100px) rotate(90deg);
+            }
+            50% {
+                transform: translate(200px, 0) rotate(180deg);
+            }
+            75% {
+                transform: translate(100px, -100px) rotate(270deg);
+            }
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+            }
+        }
+        
+        /* SPARKLE EFFECT */
+        .sparkle {
+            position: fixed;
+            width: 6px;
+            height: 6px;
+            background: radial-gradient(circle, #fff 30%, transparent 70%);
+            border-radius: 50%;
+            animation: sparkleTwinkle 1.5s infinite alternate;
+            pointer-events: none;
+            z-index: 5;
+        }
+        
+        @keyframes sparkleTwinkle {
+            0% { opacity: 0.3; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1.2); }
+        }
+        
+        /* VOLUME CONTROL */
+        .volume-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 15px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .volume-slider {
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <!-- LOVE VIDEO BACKGROUND -->
+    <video id="loveVideo" autoplay muted loop playsinline>
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-hearts-in-the-sky-4655-large.mp4" type="video/mp4">
+        <source src="https://cdn.pixabay.com/video/2022/08/19/142626-744701264_large.mp4" type="video/mp4">
+    </video>
+    
+    <!-- VIDEO OVERLAY -->
+    <div class="video-overlay"></div>
+    
+    <!-- VOLUME CONTROL -->
+    <div class="volume-control">
+        <span>🔊</span>
+        <input type="range" min="0" max="1" step="0.1" value="0.5" class="volume-slider" id="volumeSlider">
+    </div>
+    
+    <!-- MAIN CONTENT -->
+    <div class="container">
+        <h1 class="main-heading">💖 HAPPY VALENTINE'S DAY 💖</h1>
+        
+        <h2 class="sub-heading">FOR MY DEAREST <span class="ishu-name">ISHU</span></h2>
+        
+        <div class="heart-decoration">
+            ❤️💖💝💗💕💞💓💘😍🥰💌🌹🎁✨
+        </div>
+        
+        <div class="messages-container">
+            <div class="valentine-message">
+                <span class="ishu-name">ISHU</span>, YOU ARE THE MOST BEAUTIFUL THING THAT HAS EVER HAPPENED TO ME
+            </div>
+            
+            <div class="valentine-message">
+                YOUR SMILE IS MY SUNSHINE, YOUR LAUGHTER IS MY FAVORITE SOUND
+            </div>
+            
+            <div class="valentine-message">
+                MY WORLD IS COMPLETE ONLY WHEN YOU ARE IN IT
+            </div>
+            
+            <div class="valentine-message">
+                I WANT TO SPEND EVERY MOMENT OF MY LIFE WITH YOU
+            </div>
+            
+            <div class="valentine-message">
+                YOU ARE MY BEGINNING, MY MIDDLE, AND MY FOREVER
+            </div>
+        </div>
+        
+        <div class="special-box">
+            <div class="valentine-message" style="color: #FFD700; font-size: clamp(2.2rem, 4vw, 3.2rem);">
+                <span class="ishu-name">ISHU</span>, YOU ARE MY FIRST AND LAST <span class="love-word">LOVE</span> 💝
+            </div>
+        </div>
+        
+        <div class="messages-container">
+            <div class="valentine-message">
+                YOUR EYES HOLD THE SECRETS TO MY SOUL
+            </div>
+            
+            <div class="valentine-message">
+                YOUR TOUCH MAKES EVERYTHING BETTER
+            </div>
+            
+            <div class="valentine-message">
+                I FALL IN <span class="love-word">LOVE</span> WITH YOU ALL OVER AGAIN EVERY SINGLE DAY
+            </div>
+            
+            <div class="valentine-message">
+                YOU ARE THE ANSWER TO EVERY PRAYER I NEVER SAID
+            </div>
+        </div>
+        
+        <div class="heart-decoration">
+            💑👫💏❤️🔥🎉🎊💒🏩💍🎀🌸🌺
+        </div>
+        
+        <div class="special-box" style="background: rgba(0, 100, 0, 0.8); border-color: #00FF00;">
+            <div class="valentine-message" style="color: #98FB98;">
+                EVERYTHING I DO, I DO IT FOR YOU, MY <span class="ishu-name">ISHU</span>
+            </div>
+        </div>
+        
+        <div class="footer">
+            FOREVER YOURS ❤️ ALWAYS AND ALWAYS
+        </div>
+    </div>
+
+    <script>
+        // CREATE FLOATING HEARTS
+        function createFloatingHearts() {
+            const hearts = ['❤️', '💖', '💝', '💗', '💕', '💞', '💓', '💘'];
+            
+            for (let i = 0; i < 25; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'floating-heart';
+                heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.top = Math.random() * 100 + 'vh';
+                heart.style.fontSize = (Math.random() * 40 + 20) + 'px';
+                heart.style.animationDuration = (Math.random() * 30 + 15) + 's';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                heart.style.color = ['#FF1493', '#FF69B4', '#FFB6C1', '#FFD700', '#00FF00'][Math.floor(Math.random() * 5)];
+                
+                document.body.appendChild(heart);
+            }
+        }
+        
+        // CREATE GLITTER EFFECT
+        function createGlitter() {
+            for (let i = 0; i < 100; i++) {
+                const glitter = document.createElement('div');
+                glitter.className = 'glitter';
+                glitter.style.left = Math.random() * 100 + 'vw';
+                glitter.style.top = Math.random() * 100 + 'vh';
+                glitter.style.width = glitter.style.height = (Math.random() * 4 + 2) + 'px';
+                glitter.style.animationDelay = Math.random() * 3 + 's';
+                glitter.style.animationDuration = (Math.random() * 4 + 2) + 's';
+                glitter.style.background = ['#FFD700', '#FFFFFF', '#FF1493', '#00FFFF'][Math.floor(Math.random() * 4)];
+                
+                document.body.appendChild(glitter);
+            }
+        }
+        
+        // CREATE SPARKLES
+        function createSparkles() {
+            for (let i = 0; i < 50; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = Math.random() * 100 + 'vw';
+                sparkle.style.top = Math.random() * 100 + 'vh';
+                sparkle.style.animationDelay = Math.random() * 2 + 's';
+                
+                document.body.appendChild(sparkle);
+                
+                // Move sparkles randomly
+                setInterval(() => {
+                    sparkle.style.left = Math.random() * 100 + 'vw';
+                    sparkle.style.top = Math.random() * 100 + 'vh';
+                }, 4000);
+            }
+        }
+        
+        // VOLUME CONTROL
+        const video = document.getElementById('loveVideo');
+        const volumeSlider = document.getElementById('volumeSlider');
+        
+        volumeSlider.addEventListener('input', function() {
+            video.volume = this.value;
+        });
+        
+        // SET INITIAL VOLUME
+        video.volume = 0.5;
+        
+        // MAKE VIDEO PLAY AUTOMATICALLY
+        video.play().catch(e => {
+            console.log("Video autoplay failed:", e);
+        });
+        
+        // ADD HEART ON CLICK
+        document.addEventListener('click', function(e) {
+            const hearts = ['❤️', '💖', '💝', '💗'];
+            const heart = document.createElement('div');
+            heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+            heart.style.position = 'fixed';
+            heart.style.left = e.clientX + 'px';
+            heart.style.top = e.clientY + 'px';
+            heart.style.fontSize = '50px';
+            heart.style.zIndex = '1000';
+            heart.style.pointerEvents = 'none';
+            heart.style.animation = 'floatAround 5s forwards';
+            heart.style.color = ['#FF1493', '#FF69B4', '#FFD700'][Math.floor(Math.random() * 3)];
+            
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        });
+        
+        // ANIMATE MESSAGES ONE BY ONE
+        function animateMessages() {
+            const messages = document.querySelectorAll('.valentine-message');
+            messages.forEach((msg, index) => {
+                msg.style.animationDelay = (index * 0.3) + 's';
+                msg.style.animation = 'messageEntrance 0.8s ease-out ' + (index * 0.3) + 's both';
+            });
+        }
+        
+        // MAKE ISHU NAME CLICKABLE FOR EXTRA EFFECT
+        document.querySelectorAll('.ishu-name').forEach(name => {
+            name.addEventListener('click', function() {
+                this.style.animation = 'none';
+                setTimeout(() => {
+                    this.style.animation = 'nameGlow 3s infinite alternate';
+                }, 10);
+                
+                // Create heart explosion
+                for (let i = 0; i < 20; i++) {
+                    const heart = document.createElement('div');
+                    heart.innerHTML = '💖';
+                    heart.style.position = 'fixed';
+                    const rect = this.getBoundingClientRect();
+                    heart.style.left = (rect.left + rect.width/2) + 'px';
+                    heart.style.top = (rect.top + rect.height/2) + 'px';
+                    heart.style.fontSize = '40px';
+                    heart.style.zIndex = '1000';
+                    heart.style.pointerEvents = 'none';
+                    heart.style.animation = `explodeHeart 2s forwards`;
+                    heart.style.setProperty('--angle', (Math.random() * 360) + 'deg');
+                    heart.style.setProperty('--distance', (Math.random() * 150 + 100) + 'px');
+                    
+                    document.body.appendChild(heart);
+                    
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 2000);
+                }
+            });
+        });
+        
+        // ADD EXPLODE ANIMATION
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes explodeHeart {
+                0% {
+                    transform: translate(0, 0) scale(1);
+                    opacity: 1;
+                }
+                100% {
+                    transform: translate(
+                        calc(cos(var(--angle, 0deg)) * var(--distance, 100px)),
+                        calc(sin(var(--angle, 0deg)) * var(--distance, 100px))
+                    ) scale(0);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // ADD RESPONSIVE VIDEO SOURCE FALLBACK
+        const videoElement = document.getElementById('loveVideo');
+        const videoSources = [
+            'https://assets.mixkit.co/videos/preview/mixkit-hearts-in-the-sky-4655-large.mp4',
+            'https://cdn.pixabay.com/video/2022/08/19/142626-744701264_large.mp4',
+            'https://player.vimeo.com/external/371433846.sd.mp4?s=2daa2d0e6fc5b9aad0f5c1a46d5c1e6f1b13f64b&profile_id=164&oauth2_token_id=57447761'
+        ];
+        
+        let currentVideoIndex = 0;
+        
+        function changeVideoSource() {
+            videoElement.src = videoSources[currentVideoIndex];
+            videoElement.load();
+            currentVideoIndex = (currentVideoIndex + 1) % videoSources.length;
+        }
+        
+        // TRY TO LOAD VIDEO, IF FAILS TRY NEXT SOURCE
+        videoElement.addEventListener('error', changeVideoSource);
+        
+        // INITIALIZE ALL EFFECTS
+        window.addEventListener('DOMContentLoaded', () => {
+            createFloatingHearts();
+            createGlitter();
+            createSparkles();
+            animateMessages();
+            
+            // START WITH FIRST VIDEO SOURCE
+            changeVideoSource();
+        });
+    </script>
+</body>
+</html>
