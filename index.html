@@ -1,126 +1,253 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>💝 FOR MY ISHU 💝</title>
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Arial Black','Impact',sans-serif;}
-body{background:#000;min-height:100vh;display:flex;justify-content:center;align-items:center;padding:15px;}
-.container{width:90%;max-width:1000px;text-align:center;padding:30px;}
-.main-heading{font-size:clamp(3rem,6vw,4.5rem);font-weight:900;color:#FF1493;text-shadow:0 0 20px #FF1493;margin-bottom:20px;}
-.sub-heading{font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:900;color:#FFD700;text-shadow:0 0 10px #FFD700;margin-bottom:40px;}
-.messages-container{background:rgba(0,0,0,0.7);border-radius:20px;padding:35px;margin:30px 0;border:3px solid #FF1493;}
-.valentine-message{font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:900;color:#fff;margin-bottom:25px;line-height:1.5;text-transform:uppercase;}
-.ishu-name{color:#9370DB;font-weight:900;font-size:1.2em;}
-.love-word{color:#FF0000;font-weight:900;}
-.special-box{background:rgba(139,0,139,0.8);padding:30px;border-radius:15px;margin:35px 0;border:3px solid #FFD700;}
-.footer{font-size:clamp(1.5rem,2.5vw,2rem);font-weight:900;color:#fff;margin-top:40px;padding-top:25px;border-top:2px solid #FF1493;}
-#song-form input{padding:10px;border-radius:5px;border:none;}
-#song-form button{padding:10px 20px;background:#00FFFF;color:#000;font-weight:900;border:none;border-radius:5px;cursor:pointer;}
-/* HIDE THE ADMIN PANEL */
-#hidden-admin{display:none;}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💝 FOR MY ISHU 💝</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial Black', 'Impact', sans-serif;
+        }
+        
+        /* SIMPLE BACKGROUND */
+        body {
+            background: #000;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+        }
+        
+        /* MAIN CONTAINER - OPTIMIZED */
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            text-align: center;
+            padding: 30px;
+            position: relative;
+            z-index: 10;
+            margin: 0 auto;
+        }
+        
+        /* MAIN HEADING - 100% BOLD */
+        .main-heading {
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            font-weight: 900;
+            color: #FF1493;
+            text-shadow: 0 0 20px #FF1493;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+        
+        /* SUB HEADING */
+        .sub-heading {
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            font-weight: 900;
+            color: #FFD700;
+            text-shadow: 0 0 10px #FFD700;
+            margin-bottom: 40px;
+        }
+        
+        /* MESSAGES CONTAINER */
+        .messages-container {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 20px;
+            padding: 35px;
+            margin: 30px 0;
+            border: 3px solid #FF1493;
+            box-shadow: 0 0 30px rgba(255, 20, 147, 0.5);
+        }
+        
+        /* VALENTINE MESSAGE - 100% BOLD */
+        .valentine-message {
+            font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+            font-weight: 900;
+            color: #FFFFFF;
+            margin-bottom: 25px;
+            line-height: 1.5;
+            text-transform: uppercase;
+            padding: 15px;
+        }
+        
+        /* ISHU NAME - PURPLE */
+        .ishu-name {
+            color: #9370DB;
+            font-weight: 900;
+            font-size: 1.2em;
+            text-shadow: 0 0 10px #9370DB;
+            display: inline-block;
+            padding: 0 5px;
+        }
+        
+        /* LOVE WORD - RED */
+        .love-word {
+            color: #FF0000;
+            font-weight: 900;
+            text-shadow: 0 0 10px #FF0000;
+            display: inline-block;
+            padding: 0 3px;
+        }
+        
+        /* SPECIAL MESSAGE BOX */
+        .special-box {
+            background: rgba(139, 0, 139, 0.8);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 35px 0;
+            border: 3px solid #FFD700;
+        }
+        
+        /* FOOTER */
+        .footer {
+            font-size: clamp(1.5rem, 2.5vw, 2rem);
+            font-weight: 900;
+            color: #FFFFFF;
+            margin-top: 40px;
+            padding-top: 25px;
+            border-top: 2px solid #FF1493;
+        }
+        
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                width: 95%;
+            }
+            
+            .messages-container {
+                padding: 25px;
+            }
+            
+            .valentine-message {
+                font-size: 1.5rem;
+                padding: 12px;
+            }
+            
+            .special-box {
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .main-heading {
+                font-size: 2.2rem;
+            }
+            
+            .sub-heading {
+                font-size: 1.5rem;
+            }
+            
+            .valentine-message {
+                font-size: 1.2rem;
+                padding: 10px;
+            }
+            
+            .messages-container {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
-
 <body>
+    <!-- MAIN CONTENT -->
+    <div class="container">
+        <h1 class="main-heading">HAPPY VALENTINE'S DAY</h1>
+        
+        <h2 class="sub-heading">FOR MY DEAREST <span class="ishu-name">ISHU</span></h2>
+        
+        <div class="messages-container">
+            <div class="valentine-message">
+                <span class="ishu-name">ISHU</span>, YOU ARE THE MOST BEAUTIFUL THING THAT HAS EVER HAPPENED TO ME
+            </div>
+            
+            <div class="valentine-message">
+                YOUR SMILE IS MY SUNSHINE, YOUR LAUGHTER IS MY FAVORITE SOUND
+            </div>
+            
+            <div class="valentine-message">
+                MY WORLD IS COMPLETE ONLY WHEN YOU ARE IN IT
+            </div>
+            
+            <div class="valentine-message">
+                I WANT TO SPEND EVERY MOMENT OF MY LIFE WITH YOU
+            </div>
+            
+            <div class="valentine-message">
+                YOU ARE MY BEGINNING, MY MIDDLE, AND MY FOREVER
+            </div>
+        </div>
+        
+        <div class="special-box">
+            <div class="valentine-message" style="color: #FFD700; font-size: clamp(1.8rem, 3.2vw, 2.4rem);">
+                <span class="ishu-name">ISHU</span>, YOU ARE MY FIRST AND LAST <span class="love-word">LOVE</span>
+            </div>
+        </div>
+        
+        <div class="messages-container">
+            <div class="valentine-message">
+                YOUR EYES HOLD THE SECRETS TO MY SOUL
+            </div>
+            
+            <div class="valentine-message">
+                YOUR TOUCH MAKES EVERYTHING BETTER
+            </div>
+            
+            <div class="valentine-message">
+                I FALL IN <span class="love-word">LOVE</span> WITH YOU ALL OVER AGAIN EVERY SINGLE DAY
+            </div>
+            
+            <div class="valentine-message">
+                YOU ARE THE ANSWER TO EVERY PRAYER I NEVER SAID
+            </div>
+        </div>
+        
+        <div class="special-box" style="background: rgba(0, 100, 0, 0.8); border-color: #00FF00;">
+            <div class="valentine-message" style="color: #98FB98;">
+                EVERYTHING I DO, I DO IT FOR YOU, MY <span class="ishu-name">ISHU</span>
+            </div>
+        </div>
+        
+        <div class="footer">
+            FOREVER YOURS ALWAYS AND ALWAYS
+        </div>
+    </div>
 
-<audio id="bg-music" controls loop></audio>
-
-<div class="container">
-
-<h1 class="main-heading">HAPPY VALENTINE'S DAY</h1>
-<h2 class="sub-heading">FOR MY DEAREST <span class="ishu-name">ISHU</span></h2>
-
-<div class="messages-container">
-<div class="valentine-message"><span class="ishu-name">ISHU</span>, YOU ARE THE MOST BEAUTIFUL THING THAT HAS EVER HAPPENED TO ME</div>
-<div class="valentine-message">YOUR SMILE IS MY SUNSHINE, YOUR LAUGHTER IS MY FAVORITE SOUND</div>
-<div class="valentine-message">MY WORLD IS COMPLETE ONLY WHEN YOU ARE IN IT</div>
-<div class="valentine-message">I WANT TO SPEND EVERY MOMENT OF MY LIFE WITH YOU</div>
-<div class="valentine-message">YOU ARE MY BEGINNING, MY MIDDLE, AND MY FOREVER</div>
-</div>
-
-<div class="special-box">
-<div class="valentine-message" style="color:#FFD700;">
-<span class="ishu-name">ISHU</span>, YOU ARE MY FIRST AND LAST <span class="love-word">LOVE</span>
-</div>
-</div>
-
-<div class="messages-container">
-<div class="valentine-message">YOUR EYES HOLD THE SECRETS TO MY SOUL</div>
-<div class="valentine-message">YOUR TOUCH MAKES EVERYTHING BETTER</div>
-<div class="valentine-message">I FALL IN <span class="love-word">LOVE</span> WITH YOU ALL OVER AGAIN EVERY SINGLE DAY</div>
-<div class="valentine-message">YOU ARE THE ANSWER TO EVERY PRAYER I NEVER SAID</div>
-</div>
-
-<div class="special-box" style="background:rgba(0,100,0,0.8);border-color:#00FF00;">
-<div class="valentine-message" style="color:#98FB98;">
-EVERYTHING I DO, I DO IT FOR YOU, MY <span class="ishu-name">ISHU</span>
-</div>
-</div>
-
-<!-- HIDDEN ADMIN PANEL FORM -->
-<div id="hidden-admin" class="messages-container">
-<h3 style="color:#00FFFF;">Admin Panel - Add Song (Hidden)</h3>
-<form id="song-form">
-<input type="file" id="song-file" accept=".mp3" required>
-<button type="submit">Add Song</button>
-</form>
-</div>
-
-<div class="footer">FOREVER YOURS ALWAYS AND ALWAYS</div>
-
-</div>
-
-<script>
-// PAGE FADE
-window.addEventListener("load",()=>{
-    document.body.style.opacity="0";
-    document.body.style.transition="opacity 0.5s";
-    setTimeout(()=>{document.body.style.opacity="1";},100);
-});
-
-// MUSIC PLAYER
-const music = document.getElementById('bg-music');
-const songForm = document.getElementById('song-form');
-const songFileInput = document.getElementById('song-file');
-
-// ===== LOAD SAVED SONG =====
-let savedSong = localStorage.getItem('savedSong');
-if(savedSong){
-    music.src = savedSong;
-}
-
-// ===== ENABLE AUTOPLAY AFTER FIRST INTERACTION =====
-function enableAutoPlay(){
-    if(music.src){
-        music.play().catch(()=>{});
-    }
-    document.removeEventListener('click', enableAutoPlay);
-    document.removeEventListener('touchstart', enableAutoPlay);
-}
-document.addEventListener('click', enableAutoPlay, {once:true});
-document.addEventListener('touchstart', enableAutoPlay, {once:true});
-
-// ===== HANDLE FILE UPLOAD =====
-songForm.addEventListener('submit', e=>{
-    e.preventDefault();
-    const file = songFileInput.files[0];
-    if(!file) return alert("Select an MP3 file");
-    if(file.type !== "audio/mpeg") return alert("Only MP3 files allowed");
-
-    const reader = new FileReader();
-    reader.onload = function(evt){
-        const base64 = evt.target.result;
-        localStorage.setItem('savedSong', base64); // Save permanently
-        music.src = base64;
-        music.play().catch(()=>{});
-        alert("Song added! It will auto-play every time you open the page.");
-    };
-    reader.readAsDataURL(file);
-});
-</script>
-
+    <script>
+        // NO HEAVY ANIMATIONS - JUST BASIC FUNCTIONALITY
+        
+        // SIMPLE ISHU NAME CLICK EFFECT
+        document.querySelectorAll('.ishu-name').forEach(name => {
+            name.addEventListener('click', function() {
+                // Just change color briefly
+                const originalColor = this.style.color;
+                this.style.color = '#FFD700';
+                this.style.transition = 'color 0.3s';
+                
+                setTimeout(() => {
+                    this.style.color = originalColor || '#9370DB';
+                }, 300);
+            });
+        });
+        
+        // PAGE LOAD EFFECT
+        window.addEventListener('DOMContentLoaded', () => {
+            // Simple fade in
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s';
+            
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
 </body>
 </html>
