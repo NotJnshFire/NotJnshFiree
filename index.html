@@ -9,20 +9,57 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial Black', 'Impact', sans-serif;
+            font-family: 'Segoe UI', 'Arial', sans-serif;
         }
         
-        /* SIMPLE BACKGROUND */
+        /* ENHANCED BACKGROUND WITH GRADIENT */
         body {
-            background: #000;
+            background: linear-gradient(135deg, #0c0c0c, #1a001a, #0c0019);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 15px;
+            overflow-x: hidden;
+            position: relative;
         }
         
-        /* MAIN CONTAINER - OPTIMIZED */
+        /* HEART BACKGROUND ELEMENTS */
+        .heart-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .heart {
+            position: absolute;
+            color: rgba(255, 20, 147, 0.15);
+            font-size: 24px;
+            animation: float 8s linear infinite;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* MAIN CONTAINER */
         .container {
             width: 90%;
             max-width: 1000px;
@@ -31,91 +68,244 @@
             position: relative;
             z-index: 10;
             margin: 0 auto;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 25px;
+            box-shadow: 0 0 50px rgba(255, 20, 147, 0.3);
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            position: relative;
         }
         
-        /* MAIN HEADING - 100% BOLD */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #FF1493, #FFD700, #9370DB, #FF1493);
+            border-radius: 27px;
+            z-index: -1;
+            animation: borderGlow 4s linear infinite;
+            background-size: 400% 400%;
+        }
+        
+        @keyframes borderGlow {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        /* MAIN HEADING */
         .main-heading {
-            font-size: clamp(3rem, 6vw, 4.5rem);
+            font-size: clamp(3.2rem, 6.5vw, 5rem);
             font-weight: 900;
             color: #FF1493;
-            text-shadow: 0 0 20px #FF1493;
+            text-shadow: 0 0 15px #FF1493, 0 0 30px rgba(255, 20, 147, 0.7);
             margin-bottom: 20px;
             line-height: 1.1;
+            position: relative;
+            padding-bottom: 15px;
+            letter-spacing: 1px;
+        }
+        
+        .main-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 25%;
+            width: 50%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #FF1493, transparent);
         }
         
         /* SUB HEADING */
         .sub-heading {
-            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
-            font-weight: 900;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
             color: #FFD700;
             text-shadow: 0 0 10px #FFD700;
             margin-bottom: 40px;
+            padding: 15px;
+            border-radius: 15px;
+            background: rgba(255, 20, 147, 0.1);
+            display: inline-block;
         }
         
         /* MESSAGES CONTAINER */
         .messages-container {
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(20, 0, 40, 0.8);
             border-radius: 20px;
             padding: 35px;
             margin: 30px 0;
-            border: 3px solid #FF1493;
-            box-shadow: 0 0 30px rgba(255, 20, 147, 0.5);
+            border: 2px solid rgba(255, 20, 147, 0.5);
+            box-shadow: 0 0 30px rgba(255, 20, 147, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         
-        /* VALENTINE MESSAGE - 100% BOLD */
+        .messages-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 40px rgba(255, 20, 147, 0.5);
+        }
+        
+        /* VALENTINE MESSAGE */
         .valentine-message {
-            font-size: clamp(1.6rem, 2.8vw, 2.2rem);
-            font-weight: 900;
+            font-size: clamp(1.7rem, 3vw, 2.3rem);
+            font-weight: 700;
             color: #FFFFFF;
             margin-bottom: 25px;
-            line-height: 1.5;
-            text-transform: uppercase;
-            padding: 15px;
+            line-height: 1.6;
+            padding: 20px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .valentine-message:hover {
+            background: rgba(255, 20, 147, 0.15);
+            transform: scale(1.02);
+        }
+        
+        .valentine-message::before {
+            content: '❤';
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: #FF1493;
+            opacity: 0.5;
         }
         
         /* ISHU NAME - PURPLE */
         .ishu-name {
-            color: #9370DB;
+            color: #BA55D3;
             font-weight: 900;
-            font-size: 1.2em;
-            text-shadow: 0 0 10px #9370DB;
+            font-size: 1.3em;
+            text-shadow: 0 0 10px #BA55D3;
             display: inline-block;
-            padding: 0 5px;
+            padding: 0 8px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .ishu-name:hover {
+            color: #FFD700;
+            text-shadow: 0 0 15px #FFD700;
+            transform: scale(1.1);
         }
         
         /* LOVE WORD - RED */
         .love-word {
-            color: #FF0000;
+            color: #FF4500;
             font-weight: 900;
-            text-shadow: 0 0 10px #FF0000;
+            text-shadow: 0 0 10px #FF4500;
             display: inline-block;
-            padding: 0 3px;
+            padding: 0 5px;
+            transition: all 0.3s;
+        }
+        
+        .love-word:hover {
+            color: #FF0000;
+            text-shadow: 0 0 15px #FF0000;
         }
         
         /* SPECIAL MESSAGE BOX */
         .special-box {
-            background: rgba(139, 0, 139, 0.8);
+            background: linear-gradient(135deg, rgba(139, 0, 139, 0.9), rgba(148, 0, 211, 0.9));
             color: white;
-            padding: 30px;
-            border-radius: 15px;
-            margin: 35px 0;
+            padding: 35px;
+            border-radius: 20px;
+            margin: 40px 0;
             border: 3px solid #FFD700;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .special-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            animation: sparkle 20s linear infinite;
+            z-index: 0;
+        }
+        
+        @keyframes sparkle {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .special-box > * {
+            position: relative;
+            z-index: 1;
         }
         
         /* FOOTER */
         .footer {
-            font-size: clamp(1.5rem, 2.5vw, 2rem);
-            font-weight: 900;
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: 800;
             color: #FFFFFF;
-            margin-top: 40px;
+            margin-top: 50px;
             padding-top: 25px;
             border-top: 2px solid #FF1493;
+            position: relative;
+        }
+        
+        .footer::before, .footer::after {
+            content: '💖';
+            position: absolute;
+            top: -15px;
+            font-size: 2rem;
+        }
+        
+        .footer::before {
+            left: calc(50% - 100px);
+        }
+        
+        .footer::after {
+            right: calc(50% - 100px);
+        }
+        
+        /* HEART PULSE ANIMATION */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
         }
         
         /* RESPONSIVE DESIGN */
         @media (max-width: 768px) {
             .container {
-                padding: 20px;
+                padding: 25px;
                 width: 95%;
             }
             
@@ -124,43 +314,55 @@
             }
             
             .valentine-message {
-                font-size: 1.5rem;
-                padding: 12px;
+                font-size: 1.6rem;
+                padding: 15px 15px 15px 40px;
+            }
+            
+            .valentine-message::before {
+                left: 10px;
+                font-size: 1.2rem;
             }
             
             .special-box {
-                padding: 20px;
+                padding: 25px;
             }
         }
         
         @media (max-width: 480px) {
             .container {
-                padding: 15px;
+                padding: 20px;
             }
             
             .main-heading {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
             
             .sub-heading {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
             }
             
             .valentine-message {
-                font-size: 1.2rem;
-                padding: 10px;
+                font-size: 1.4rem;
+                padding: 12px 12px 12px 35px;
             }
             
             .messages-container {
                 padding: 20px;
             }
+            
+            .footer {
+                font-size: 1.6rem;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- BACKGROUND HEARTS -->
+    <div class="heart-bg" id="heartBg"></div>
+    
     <!-- MAIN CONTENT -->
     <div class="container">
-        <h1 class="main-heading">HAPPY VALENTINE'S DAY</h1>
+        <h1 class="main-heading pulse">HAPPY VALENTINE'S DAY</h1>
         
         <h2 class="sub-heading">FOR MY DEAREST <span class="ishu-name">ISHU</span></h2>
         
@@ -187,7 +389,7 @@
         </div>
         
         <div class="special-box">
-            <div class="valentine-message" style="color: #FFD700; font-size: clamp(1.8rem, 3.2vw, 2.4rem);">
+            <div class="valentine-message" style="color: #FFD700; font-size: clamp(2rem, 3.5vw, 2.6rem); background: transparent;">
                 <span class="ishu-name">ISHU</span>, YOU ARE MY FIRST AND LAST <span class="love-word">LOVE</span>
             </div>
         </div>
@@ -210,8 +412,8 @@
             </div>
         </div>
         
-        <div class="special-box" style="background: rgba(0, 100, 0, 0.8); border-color: #00FF00;">
-            <div class="valentine-message" style="color: #98FB98;">
+        <div class="special-box" style="background: linear-gradient(135deg, rgba(0, 100, 0, 0.9), rgba(50, 205, 50, 0.9)); border-color: #32CD32;">
+            <div class="valentine-message" style="color: #98FB98; background: transparent;">
                 EVERYTHING I DO, I DO IT FOR YOU, MY <span class="ishu-name">ISHU</span>
             </div>
         </div>
@@ -222,32 +424,157 @@
     </div>
 
     <script>
-        // NO HEAVY ANIMATIONS - JUST BASIC FUNCTIONALITY
+        // Create floating hearts in background
+        function createHearts() {
+            const heartBg = document.getElementById('heartBg');
+            const heartCount = window.innerWidth < 768 ? 15 : 30;
+            
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '❤';
+                
+                // Random properties
+                const size = Math.random() * 20 + 15;
+                const left = Math.random() * 100;
+                const delay = Math.random() * 15;
+                const duration = Math.random() * 10 + 10;
+                const colorVal = Math.random() > 0.5 ? '#FF1493' : '#FFD700';
+                
+                heart.style.fontSize = `${size}px`;
+                heart.style.left = `${left}%`;
+                heart.style.animationDelay = `${delay}s`;
+                heart.style.animationDuration = `${duration}s`;
+                heart.style.color = colorVal;
+                
+                heartBg.appendChild(heart);
+            }
+        }
         
-        // SIMPLE ISHU NAME CLICK EFFECT
+        // Ishu name click effect
         document.querySelectorAll('.ishu-name').forEach(name => {
             name.addEventListener('click', function() {
-                // Just change color briefly
+                // Create heart explosion
+                for (let i = 0; i < 10; i++) {
+                    const heart = document.createElement('div');
+                    heart.innerHTML = '❤';
+                    heart.style.position = 'fixed';
+                    heart.style.fontSize = '25px';
+                    heart.style.color = '#FF1493';
+                    heart.style.pointerEvents = 'none';
+                    heart.style.zIndex = '1000';
+                    
+                    // Start position
+                    const rect = this.getBoundingClientRect();
+                    const startX = rect.left + rect.width / 2;
+                    const startY = rect.top + rect.height / 2;
+                    
+                    heart.style.left = `${startX}px`;
+                    heart.style.top = `${startY}px`;
+                    
+                    document.body.appendChild(heart);
+                    
+                    // Random end position
+                    const angle = Math.random() * Math.PI * 2;
+                    const distance = 100 + Math.random() * 150;
+                    const endX = startX + Math.cos(angle) * distance;
+                    const endY = startY + Math.sin(angle) * distance;
+                    
+                    // Animate
+                    const animation = heart.animate([
+                        { transform: 'translate(0, 0) scale(1)', opacity: 1 },
+                        { transform: `translate(${endX - startX}px, ${endY - startY}px) scale(0.5)`, opacity: 0 }
+                    ], {
+                        duration: 1000 + Math.random() * 1000,
+                        easing: 'cubic-bezier(0.215, 0.61, 0.355, 1)'
+                    });
+                    
+                    // Remove after animation
+                    animation.onfinish = () => {
+                        document.body.removeChild(heart);
+                    };
+                }
+                
+                // Also change color briefly
                 const originalColor = this.style.color;
                 this.style.color = '#FFD700';
-                this.style.transition = 'color 0.3s';
+                this.style.textShadow = '0 0 20px #FFD700';
                 
                 setTimeout(() => {
-                    this.style.color = originalColor || '#9370DB';
-                }, 300);
+                    this.style.color = originalColor || '#BA55D3';
+                    this.style.textShadow = '0 0 10px #BA55D3';
+                }, 500);
             });
         });
         
-        // PAGE LOAD EFFECT
+        // Add hover effect to all message boxes
+        document.querySelectorAll('.valentine-message').forEach(message => {
+            message.addEventListener('mouseenter', function() {
+                this.style.boxShadow = '0 0 20px rgba(255, 20, 147, 0.5)';
+            });
+            
+            message.addEventListener('mouseleave', function() {
+                this.style.boxShadow = 'none';
+            });
+        });
+        
+        // Page load effect
         window.addEventListener('DOMContentLoaded', () => {
+            // Create background hearts
+            createHearts();
+            
             // Simple fade in
             document.body.style.opacity = '0';
-            document.body.style.transition = 'opacity 0.5s';
+            document.body.style.transition = 'opacity 0.8s';
             
             setTimeout(() => {
                 document.body.style.opacity = '1';
             }, 100);
+            
+            // Add staggered animation to messages
+            setTimeout(() => {
+                document.querySelectorAll('.valentine-message').forEach((msg, index) => {
+                    setTimeout(() => {
+                        msg.style.opacity = '0';
+                        msg.style.transform = 'translateY(20px)';
+                        msg.style.transition = 'opacity 0.5s, transform 0.5s';
+                        
+                        setTimeout(() => {
+                            msg.style.opacity = '1';
+                            msg.style.transform = 'translateY(0)';
+                        }, 50);
+                    }, index * 100);
+                });
+            }, 300);
+        });
+        
+        // Recreate hearts on resize
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                document.querySelector('.heart-bg').innerHTML = '';
+                createHearts();
+            }, 250);
         });
     </script>
+    <audio id="bgSong" src="song.mp3"></audio>
+    <script>
+let songPlayed = false;
+
+document.addEventListener("click", function () {
+    const audio = document.getElementById("bgSong");
+
+    if (!songPlayed) {
+        audio.play();
+        songPlayed = true;
+    }
+});
+</script>
+<script>
+const audio = document.getElementById("bgSong");
+audio.volume = 0.2;   // Change this between 0.0 (mute) and 1.0 (full volume)
+</script>
+
 </body>
 </html>
