@@ -573,8 +573,16 @@ document.addEventListener("click", function () {
 </script>
 <script>
 const audio = document.getElementById("bgSong");
-audio.volume = 0.2;   // Change this between 0.0 (mute) and 1.0 (full volume)
+audio.volume = 0.1;   // Change this between 0.0 (mute) and 1.0 (full volume)
 </script>
+ <script>
+     var bgAudio = new Audio("song.mp3");
+     bgAudio.loop = true;
 
+     //Tap pe play
+     document.body.addEventListener("click",function(){
+        bgAudio.play();
+    });
+ </script>
 </body>
 </html>
